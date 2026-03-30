@@ -6,7 +6,10 @@ Transformar `main.py` (monolítico) en un diseño donde cada responsabilidad viv
 
 > **Documentación de referencia general:**
 > - [Tutorial oficial de módulos en Python](https://docs.python.org/es/3/tutorial/modules.html)
-> - [Guía de estilo PEP 8 (convenciones de nombres y estructura)](https://peps.python.org/pep-0008/)
+> - [Guía de estilo PEP 8 — convenciones de nombres y estructura](https://peps.python.org/pep-0008/)
+> - [PEP 20 — El Zen de Python (principios de diseño)](https://peps.python.org/pep-0020/)
+> - [Sistema de imports de Python — referencia completa](https://docs.python.org/es/3/reference/import.html)
+> - [Guía de empaquetado y estructura de proyectos Python](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
 
 ---
 
@@ -115,7 +118,11 @@ modulo_grafico.py                                      │
 
 ### Paso 1 — Corregir y completar `modulo_val_inicial.py`
 
-> **Referencias:** [Constantes en Python (PEP 8)](https://peps.python.org/pep-0008/#constants) · [numpy.pi](https://numpy.org/doc/stable/reference/constants.html)
+> **Referencias:**
+> - [PEP 8 — Convención de nombres para constantes](https://peps.python.org/pep-0008/#constants)
+> - [numpy — Constantes matemáticas disponibles (numpy.pi, numpy.e, etc.)](https://numpy.org/doc/stable/reference/constants.html)
+> - [numpy — Tipos numéricos y precisión float](https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64)
+> - [Python — Tipos numéricos built-in: int, float, complex](https://docs.python.org/es/3/library/stdtypes.html#numeric-types-int-float-complex)
 
 **Qué hacer:** agregar las variables de tiempo que ahora están sueltas en `main.py`.
 
@@ -150,7 +157,13 @@ python -c "from modulo_val_inicial import G, L, theta0, omega0, t_inicio, t_fin,
 
 ### Paso 2 — Reescribir `modulo_diferencial.py` (corregir el nombre también)
 
-> **Referencias:** [Definir funciones en Python](https://docs.python.org/es/3/tutorial/controlflow.html#defining-functions) · [numpy.sin](https://numpy.org/doc/stable/reference/generated/numpy.sin.html) · [Sistemas de EDOs (Wikipedia)](https://es.wikipedia.org/wiki/Ecuaci%C3%B3n_diferencial_ordinaria)
+> **Referencias:**
+> - [Python — Definir funciones, parámetros y return](https://docs.python.org/es/3/tutorial/controlflow.html#defining-functions)
+> - [Python — Anotaciones de tipo en funciones (docstrings estilo NumPy)](https://docs.python.org/es/3/tutorial/controlflow.html#documentation-strings)
+> - [numpy.sin — referencia oficial](https://numpy.org/doc/stable/reference/generated/numpy.sin.html)
+> - [numpy — Funciones matemáticas completas (trigonométricas, exponenciales, etc.)](https://numpy.org/doc/stable/reference/routines.math.html)
+> - [SciPy — Tutorial de integración de ODEs con solve_ivp](https://docs.scipy.org/doc/scipy/tutorial/integrate.html)
+> - [SciPy — Descripción del argumento `args` en solve_ivp](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html)
 
 **Qué hacer:** eliminar todo el contenido roto y reemplazar por la función ODE correcta.
 
@@ -211,7 +224,13 @@ print(resultado)
 
 ### Paso 3 — Crear `modulo_simulacion.py` (módulo nuevo)
 
-> **Referencias:** [scipy.integrate.solve_ivp — documentación completa](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html) · [Métodos de integración numérica disponibles en solve_ivp](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp) · [numpy.linspace](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html)
+> **Referencias:**
+> - [scipy.integrate.solve_ivp — documentación completa con todos los parámetros](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html)
+> - [SciPy — Tutorial completo de integración numérica de ODEs](https://docs.scipy.org/doc/scipy/tutorial/integrate.html)
+> - [SciPy — Métodos de integración disponibles (RK45, DOP853, Radau, etc.)](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp)
+> - [numpy.linspace — crear arrays de puntos equiespaciados](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html)
+> - [numpy.arange — alternativa a linspace con paso fijo](https://numpy.org/doc/stable/reference/generated/numpy.arange.html)
+> - [Python — Tuplas como argumentos de función](https://docs.python.org/es/3/tutorial/datastructures.html#tuples-and-sequences)
 
 **Qué hace:** envuelve la llamada a `solve_ivp` en una función con nombre descriptivo.
 
@@ -286,7 +305,14 @@ print('Theta en t=5s:', sol.y[0][150])  # valor oscilante
 
 ### Paso 4 — Implementar `modulo_grafico.py`
 
-> **Referencias:** [matplotlib.animation.FuncAnimation](https://matplotlib.org/stable/api/_as_gen/matplotlib.animation.FuncAnimation.html) · [matplotlib.pyplot.subplots](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html) · [Guardar animaciones como .gif o .mp4](https://matplotlib.org/stable/api/_as_gen/matplotlib.animation.Animation.save.html)
+> **Referencias:**
+> - [matplotlib.animation.FuncAnimation — referencia oficial completa](https://matplotlib.org/stable/api/_as_gen/matplotlib.animation.FuncAnimation.html)
+> - [matplotlib — Tutorial oficial de animaciones](https://matplotlib.org/stable/users/explain/animations/animations.html)
+> - [matplotlib.pyplot.subplots — crear figura y ejes](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html)
+> - [matplotlib.axes.Axes.plot — dibujar líneas y marcadores](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html)
+> - [matplotlib.axes.Axes.text — agregar texto a la figura](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.text.html)
+> - [matplotlib — Tutorial de Artists (los objetos que se dibujan)](https://matplotlib.org/stable/users/explain/figure/artists.html)
+> - [matplotlib.animation.Animation.save — guardar como .gif o .mp4](https://matplotlib.org/stable/api/_as_gen/matplotlib.animation.Animation.save.html)
 
 **Qué hace:** recibe el resultado de la simulación y construye la animación. Devuelve el objeto `ani` para que `main.py` lo muestre.
 
@@ -379,7 +405,12 @@ def crear_animacion(sol, L):
 
 ### Paso 5 — Reescribir `main.py` como orquestador puro
 
-> **Referencias:** [Sistema de imports de Python — referencia completa](https://docs.python.org/es/3/reference/import.html) · [`if __name__ == '__main__'` explicado](https://docs.python.org/es/3/library/__main__.html)
+> **Referencias:**
+> - [Python — Sistema de imports, referencia técnica completa](https://docs.python.org/es/3/reference/import.html)
+> - [Python — `__main__`: el módulo de punto de entrada](https://docs.python.org/es/3/library/__main__.html)
+> - [numpy.linspace — construir la grilla temporal](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html)
+> - [matplotlib.pyplot.show — mostrar la ventana gráfica](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html)
+> - [PEP 8 — Orden recomendado de los imports en un archivo](https://peps.python.org/pep-0008/#imports)
 
 ```python
 import numpy as np
@@ -486,7 +517,12 @@ Si todo está bien, se abre la ventana de matplotlib con el péndulo animado. Si
 
 ## Cómo importar y exportar entre archivos — guía desde cero
 
-> **Referencias:** [Tutorial de módulos e imports (Python oficial)](https://docs.python.org/es/3/tutorial/modules.html) · [Sentencia `import` — referencia técnica](https://docs.python.org/es/3/reference/simple_stmts.html#the-import-statement) · [Guía de imports en Real Python (inglés, muy completa)](https://realpython.com/python-import/)
+> **Referencias:**
+> - [Python — Tutorial oficial de módulos e imports](https://docs.python.org/es/3/tutorial/modules.html)
+> - [Python — Sentencia `import`, referencia técnica detallada](https://docs.python.org/es/3/reference/simple_stmts.html#the-import-statement)
+> - [Python — Sistema de imports: cómo Python encuentra y carga módulos](https://docs.python.org/es/3/reference/import.html)
+> - [Python — `__all__`: controlar qué se exporta de un módulo](https://docs.python.org/es/3/tutorial/modules.html#importing-from-a-package)
+> - [PEP 328 — Imports relativos y absolutos](https://peps.python.org/pep-0328/)
 
 En Python no existe una palabra clave `export` como en otros lenguajes. **Todo lo que defines en un archivo (variable, función, clase) queda disponible automáticamente para ser importado desde otro archivo.** No hay que hacer nada especial para "exportar".
 
@@ -509,6 +545,10 @@ Para usar algo de otro archivo, usas `import` o `from ... import`.
 
 ### Forma 1 — `import modulo` (importar el módulo completo)
 
+> **Referencias:**
+> - [Python — `import` como sentencia simple](https://docs.python.org/es/3/reference/simple_stmts.html#the-import-statement)
+> - [Python — Acceso a atributos con notación punto](https://docs.python.org/es/3/reference/expressions.html#attribute-references)
+
 Traes el archivo entero. Para usar algo de él, escribes `modulo.cosa`.
 
 ```python
@@ -524,6 +564,10 @@ print(modulo_val_inicial.theta0)   # → 0.785...
 ---
 
 ### Forma 2 — `from modulo import cosa` (importar solo lo que necesitas)
+
+> **Referencias:**
+> - [Python — `from ... import` en la referencia oficial](https://docs.python.org/es/3/reference/simple_stmts.html#the-import-statement)
+> - [PEP 8 — Cuándo preferir `from` vs `import` completo](https://peps.python.org/pep-0008/#imports)
 
 Traes una o varias cosas puntuales. Las usas directamente, sin prefijo.
 
@@ -542,6 +586,11 @@ print(theta0)  # → 0.785...
 
 ### Forma 3 — `from modulo import cosa as alias` (importar con otro nombre)
 
+> **Referencias:**
+> - [Python — Cláusula `as` en imports](https://docs.python.org/es/3/reference/simple_stmts.html#the-import-statement)
+> - [PEP 8 — Aliases de import: cuándo son aceptables](https://peps.python.org/pep-0008/#imports)
+> - [PEP 8 — Aliases estándar de la comunidad (np, plt, pd)](https://peps.python.org/pep-0008/#imports)
+
 Le das un nombre distinto a lo que importas. Útil para evitar colisiones o acortar nombres.
 
 ```python
@@ -556,6 +605,11 @@ print(g)   # → 9.81
 ---
 
 ### Forma 4 — importar una función y llamarla
+
+> **Referencias:**
+> - [Python — Definición de funciones y objetos de primera clase](https://docs.python.org/es/3/tutorial/controlflow.html#defining-functions)
+> - [Python — Las funciones son objetos: se pueden pasar y asignar](https://docs.python.org/es/3/reference/datamodel.html#user-defined-functions)
+> - [Python — Llamadas a funciones: argumentos posicionales y keyword](https://docs.python.org/es/3/tutorial/controlflow.html#more-on-defining-functions)
 
 Las funciones se importan igual que las variables.
 
@@ -576,6 +630,10 @@ print(resultado)   # → [0, -6.937...]
 ---
 
 ### Forma 5 — importar múltiples cosas en una línea
+
+> **Referencias:**
+> - [PEP 8 — Agrupación de imports y uso de paréntesis para líneas largas](https://peps.python.org/pep-0008/#imports)
+> - [Python — Continuación de línea implícita con paréntesis](https://docs.python.org/es/3/reference/lexical_analysis.html#implicit-line-joining)
 
 ```python
 from modulo_val_inicial import G, L, theta0, omega0, t_inicio, t_fin, num_puntos
@@ -598,6 +656,10 @@ from modulo_val_inicial import (
 ---
 
 ### Forma 6 — `from modulo import *` (importar todo, no recomendado)
+
+> **Referencias:**
+> - [Python — `import *` y la variable `__all__`](https://docs.python.org/es/3/tutorial/modules.html#importing-from-a-package)
+> - [PEP 8 — Por qué evitar `import *` en producción](https://peps.python.org/pep-0008/#imports)
 
 ```python
 from modulo_val_inicial import *   # trae G, L, theta0, omega0...
@@ -691,7 +753,12 @@ Cada archivo importa **solo lo que realmente usa**. Nada más.
 
 ## Cómo decidir qué extraer a un módulo — el criterio de diseño
 
-> **Referencias:** [Principio de responsabilidad única (Wikipedia)](https://es.wikipedia.org/wiki/Principio_de_responsabilidad_%C3%BAnica) · [Cómo estructurar proyectos Python (Real Python, inglés)](https://realpython.com/python-application-layouts/)
+> **Referencias:**
+> - [PEP 20 — El Zen de Python: "Cada cosa debe tener una responsabilidad clara"](https://peps.python.org/pep-0020/)
+> - [PEP 8 — Organización y estructura de módulos](https://peps.python.org/pep-0008/#module-level-dunder-names)
+> - [Python — Cómo organizar paquetes y módulos](https://docs.python.org/es/3/tutorial/modules.html#packages)
+> - [Python Packaging — Diseño de estructura flat-layout vs src-layout](https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/)
+> - [Python — Tutorial de programación orientada a objetos y separación de responsabilidades](https://docs.python.org/es/3/tutorial/classes.html)
 
 Saber la sintaxis del import no alcanza. La pregunta real es: **¿cuándo tiene sentido separar código en otro archivo?**
 
@@ -747,7 +814,11 @@ Mezcla datos, física y visualización. Si cambias el gráfico, abres el mismo a
 
 ## `if __name__ == '__main__'` — la trampa silenciosa más común
 
-> **Referencias:** [`__main__` — documentación oficial](https://docs.python.org/es/3/library/__main__.html) · [Explicación detallada de `__name__` (Real Python, inglés)](https://realpython.com/if-name-main-python/)
+> **Referencias:**
+> - [Python — `__main__`: documentación oficial del módulo de entrada](https://docs.python.org/es/3/library/__main__.html)
+> - [Python — Modelo de datos: variables especiales `__name__`, `__file__`, `__doc__`](https://docs.python.org/es/3/reference/datamodel.html)
+> - [Python — Cómo Python ejecuta un archivo: el intérprete y el scope global](https://docs.python.org/es/3/reference/executionmodel.html)
+> - [PEP 338 — Ejecutar módulos como scripts](https://peps.python.org/pep-0338/)
 
 Este es el error que más destroza módulos de principiantes y es difícil de diagnosticar porque **no lanza ningún error**, simplemente hace cosas inesperadas.
 
@@ -835,7 +906,12 @@ Así, si otro script importa algo de `main.py` en el futuro, la simulación no a
 
 ## `return` vs variable global — cómo pasar datos entre módulos correctamente
 
-> **Referencias:** [Sentencia `return` en Python](https://docs.python.org/es/3/reference/simple_stmts.html#the-return-statement) · [Variables y scope en Python (Real Python, inglés)](https://realpython.com/python-scope-legb-rule/) · [Por qué evitar variables globales (Stack Overflow)](https://stackoverflow.com/questions/19158339/why-are-global-variables-evil)
+> **Referencias:**
+> - [Python — Sentencia `return`: referencia oficial](https://docs.python.org/es/3/reference/simple_stmts.html#the-return-statement)
+> - [Python — Scope y resolución de nombres (regla LEGB)](https://docs.python.org/es/3/reference/executionmodel.html#resolution-of-names)
+> - [Python — FAQ oficial: reglas de variables locales y globales](https://docs.python.org/es/3/faq/programming.html#what-are-the-rules-for-local-and-global-variables-in-python)
+> - [Python — Sentencia `global`: cuándo y cómo usarla](https://docs.python.org/es/3/reference/simple_stmts.html#the-global-statement)
+> - [Python — Funciones que devuelven múltiples valores con tuplas](https://docs.python.org/es/3/tutorial/datastructures.html#tuples-and-sequences)
 
 Este es el segundo error de diseño más común. Un módulo que "guarda" su resultado en una variable global en lugar de devolverlo con `return` rompe la independencia entre módulos.
 
@@ -901,7 +977,11 @@ x_pos, y_pos = calcular_posicion(0.785, 1.0)
 
 ## Importaciones circulares — cómo evitar el error más frustrante
 
-> **Referencias:** [Importaciones circulares en Python — explicación oficial](https://docs.python.org/es/3/faq/programming.html#what-are-the-best-practices-for-using-import-in-a-module) · [Cómo resolver circular imports (Real Python, inglés)](https://realpython.com/python-import/#handle-cyclical-imports)
+> **Referencias:**
+> - [Python FAQ — Mejores prácticas para usar imports en un módulo](https://docs.python.org/es/3/faq/programming.html#what-are-the-best-practices-for-using-import-in-a-module)
+> - [Python — Sistema de imports: orden de carga y caché de módulos (`sys.modules`)](https://docs.python.org/es/3/reference/import.html#the-module-cache)
+> - [Python — Cómo Python inicializa y ejecuta un módulo al importarlo](https://docs.python.org/es/3/reference/import.html#loading)
+> - [PEP 8 — Evitar imports circulares mediante estructura correcta](https://peps.python.org/pep-0008/#imports)
 
 Una importación circular ocurre cuando el archivo A importa de B, y B importa de A. Python no puede resolver el orden de carga y lanza `ImportError`.
 
@@ -945,7 +1025,13 @@ Ambos importan de la fuente común. Nunca se importan entre sí.
 
 ## Checklist para crear un módulo nuevo desde cero
 
-> **Referencias:** [Convenciones de nombres de archivos/módulos (PEP 8)](https://peps.python.org/pep-0008/#package-and-module-names) · [Cómo testear un módulo de forma aislada](https://docs.python.org/es/3/library/unittest.html)
+> **Referencias:**
+> - [PEP 8 — Convenciones de nombres para paquetes y módulos](https://peps.python.org/pep-0008/#package-and-module-names)
+> - [PEP 8 — Estructura recomendada dentro de un archivo Python](https://peps.python.org/pep-0008/#code-lay-out)
+> - [Python — `unittest`: probar un módulo de forma aislada](https://docs.python.org/es/3/library/unittest.html)
+> - [Python — `doctest`: probar ejemplos dentro de docstrings](https://docs.python.org/es/3/library/doctest.html)
+> - [Python — Convenciones de docstrings (PEP 257)](https://peps.python.org/pep-0257/)
+> - [Python Packaging — Cómo publicar y distribuir un módulo propio](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
 
 Cuando quieras extraer algo a un nuevo archivo, seguí estos pasos:
 
